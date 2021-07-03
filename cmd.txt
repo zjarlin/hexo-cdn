@@ -1,0 +1,21 @@
+git init
+#git config --global user.name "zjarlin"
+#git config --global user.email "zjarlin@outlook.com"
+touch README.md
+# 替换标题
+tee > README.md << 'EOF'
+# 这是我的blog_cdn
+EOF
+# 追加修改时间
+echo "修改于"$(date "+%Y-%m-%d %H:%M:%S") >> ./README.md
+
+git add .
+git commit -m "Added notes for $(date)"
+git remote add origin https://github.com/zjarlin/hexo-cdn.git
+git pull origin +master
+# 这里可能中断回车即可
+;
+git push origin +master
+
+# =================================
+
